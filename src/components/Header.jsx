@@ -4,11 +4,11 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Button";
 import MenuSvg from "../assets/svg/MenuSvg";
-import { HambugerMenu } from "./design/Header";
+import { HamburgerMenu } from "./design/Header";
 import { disablePageScroll, enablePageScroll } from "scroll-lock/";
 
 const Header = () => {
-    let pathName = useLocation();
+    let pathname = useLocation();
     let [ openNavigation, setOpenNavigation ] = useState(false);
 
     const toggleNavigation = () => {
@@ -52,7 +52,7 @@ const Header = () => {
                                 text-n-1 transition-colors hover:text-color-1
                                 ${item.onlyMobile ? 'lg:hidden': ''}
                                 px-6 py-6 md:py-8 lg:-mr-0.25 lg:text-xs lg:font-semibold
-                                ${item.url === pathName?.hash ? 'z-2 lg:text-n-1'
+                                ${item.url === pathname?.hash ? 'z-2 lg:text-n-1'
                                 : 'lg:text-n-1/50'} lg:leading-5 lg:hover:text-n-1
                                 xl:px-12`}
                             >
@@ -60,7 +60,7 @@ const Header = () => {
                             </a>
                         ))}
                     </div>
-                    <HambugerMenu />
+                    <HamburgerMenu />
 
                 </nav>
 
@@ -71,7 +71,7 @@ const Header = () => {
                 >
                     New Account
                 </a>
-                <Button className={`hidden lg:flex"`} href="#login">
+                <Button className={`hidden lg:flex`} href="#login">
                     Sign In
                 </Button>
                 <Button className="ml-auto lg:hidden" px={"px-3"} onClick={toggleNavigation}>
